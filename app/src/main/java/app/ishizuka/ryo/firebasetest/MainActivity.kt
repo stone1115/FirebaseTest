@@ -144,9 +144,7 @@ class MainActivity: AppCompatActivity() {
                     // updateUI(null)
                 }
 
-                // [START_EXCLUDE]
                 // hideProgressBar()
-                // [END_EXCLUDE]
             }
     }
     // [END auth_with_google]
