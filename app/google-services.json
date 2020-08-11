@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "185479656265",
+    "firebase_url": "https://testproject-37e66.firebaseio.com",
+    "project_id": "testproject-37e66",
+    "storage_bucket": "testproject-37e66.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:185479656265:android:dfbcc39529ea460eb3a098",
+        "android_client_info": {
+          "package_name": "app.ishizuka.ryo.firebasetest"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "185479656265-s8e9n4p1mdrdlra3hbeq2n8ik03l138d.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDuKNCui34WOjAJ4QizmUUuHasOHfsGWxE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "185479656265-s8e9n4p1mdrdlra3hbeq2n8ik03l138d.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
