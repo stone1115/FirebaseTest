@@ -33,7 +33,7 @@ class ViewActivity: AppCompatActivity() {
             }
             .addOnFailureListener { e -> Log.w(TAG, "Error reading document", e) }
 
-        backButton.setOnClickListener {
+        EmailBackButton.setOnClickListener {
             finish()
         }
     }
