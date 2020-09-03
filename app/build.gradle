@@ -42,15 +42,18 @@ dependencies {
     implementation 'com.google.firebase:firebase-firestore:20.0.0'
 
     // なべさんのqiitaから
-    implementation 'com.google.firebase:firebase-auth:18.0.0'
-    implementation 'com.google.firebase:firebase-core:17.0.0'
-    implementation 'com.google.firebase:firebase-database:16.0.5'
+    // implementation 'com.google.firebase:firebase-auth:18.0.0' // comment
+    // implementation 'com.google.firebase:firebase-core:17.0.0' // comment
+    // implementation 'com.google.firebase:firebase-database:16.0.5' // comment
     implementation 'com.google.android.gms:play-services-auth:16.0.1'
-    // implementation "com.firebaseui:firebase-ui-auth:4.2.1"
+    // implementation 'com.firebaseui:firebase-ui-auth:4.2.1'
 
     // FirebaseUiの依存関係 https://firebase.google.com/docs/auth/android/firebaseui?hl=ja
     implementation 'com.firebaseui:firebase-ui-auth:6.2.0'
     implementation 'com.google.firebase:firebase-auth-ktx:19.3.2'
+
+    // Firebase Realtime Database SDK
+    implementation 'com.google.firebase:firebase-database-ktx:19.3.1'
 
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'

@@ -53,6 +53,7 @@ class GoogleSignInActivity: AppCompatActivity() {
 
     private fun signOut() {
         auth.signOut()
+        googleSignInClient.signOut()
         Log.d(TAG, "Google sign out")
     }
 

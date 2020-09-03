@@ -19,7 +19,7 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity: AppCompatActivity() {
 
-    val db = FirebaseFirestore.getInstance()
+    private val db = FirebaseFirestore.getInstance()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -54,9 +54,14 @@ class MainActivity: AppCompatActivity() {
         intentGoogleButton.setOnClickListener {
             startActivity(googlePreview)
         }
+
+        val databasePreview = Intent(this, RealtimeDatabaseActivity::class.java)
+        intentDatabaseButton.setOnClickListener {
+            startActivity(databasePreview)
+        }
     }
 
-    fun addDataTest() {
+    private fun addDataTest() {
         // val testData = TestData(inputNameView.text.toString(), inputFoodView.text.toString())
         val testData = hashMapOf(
             "name" to inputNameView.text.toString(),
@@ -64,7 +69,7 @@ class MainActivity: AppCompatActivity() {
         )
         db.collection("users").document()
             .set(testData)
-            .addOnSuccessListener { Log.d(TAG, "DocumentSnapshot succesful written") }
+            .addOnSuccessListener { Log.d(TAG, "DocumentSnapshot successful written") }
             .addOnFailureListener { e -> Log.w(TAG, "Error adding document", e) }
     }
 

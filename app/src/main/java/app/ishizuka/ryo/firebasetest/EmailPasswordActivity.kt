@@ -6,13 +6,17 @@ import android.text.TextUtils
 import android.util.Log
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.UserInfo
 import com.google.firebase.auth.ktx.auth
+import com.google.firebase.database.ktx.database
+import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.activity_email_password.*
 
 class EmailPasswordActivity: AppCompatActivity() {
 
     private lateinit var auth: FirebaseAuth
+    private val db = FirebaseFirestore.getInstance()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,8 +39,6 @@ class EmailPasswordActivity: AppCompatActivity() {
         EmailBackButton.setOnClickListener {
             finish()
         }
-
-        // reload
     }
 
     private fun createAccount(email: String, password: String) {
@@ -72,8 +74,7 @@ class EmailPasswordActivity: AppCompatActivity() {
             .addOnCompleteListener(this) {task ->
                 if (task.isSuccessful) {
                     Log.d(TAG, "signInWithEmail: success")
-                    // val user = auth.currentUser
-                    // updateUI(user)
+
                 } else {
                     Log.w (TAG, "signInWithEmail: failure", task.exception)
                     Toast.makeText(baseContext, "Authentication failed", Toast.LENGTH_SHORT).show()
@@ -128,15 +129,26 @@ class EmailPasswordActivity: AppCompatActivity() {
         return valid
     }
 
-    private fun getUserInfo () {
-        val user = Firebase.auth.currentUser
-        user?.let {
-            val name = user.displayName
-            val email = user.email
-            val photoUrl = user.photoUrl
+    private fun viewUserInfo() {
+        val user = auth.currentUser ?: return
 
-            val emailVerified = user.isEmailVerified
-        }
+        val docRef = db.collection("users").document(user.uid.toString())
+        docRef.get()
+            .addOnSuccessListener { document ->
+                if (document == null) {
+                    var userData: UserInfoData = UserInfoData(user.displayName, user.email, null)
+                    docRef.set(userData)
+                }
+            }
+            .addOnFailureListener { e ->
+                Log.d(TAG, "get failed with $e")
+            }
+
+        uidText.text = user.uid
+        docRef.get()
+            .addOnSuccessListener { doc ->
+
+            }
     }
 
     companion object {

@@ -71,7 +71,17 @@
         android:layout_marginBottom="32dp"
         android:text="google"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/intentDatabaseButton"
         app:layout_constraintStart_toEndOf="@+id/intentEmailButton" />
+
+    <Button
+        android:id="@+id/intentDatabaseButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="32dp"
+        android:text="database"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/intentGoogleButton" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
